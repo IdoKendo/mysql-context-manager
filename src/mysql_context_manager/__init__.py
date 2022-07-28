@@ -1,16 +1,13 @@
 # pylint: disable=C0114,C0115,R0913
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 import json
 from json import JSONDecodeError
 from typing import Any
 
-import sqlalchemy
-from databases import Database
-
-metadata = sqlalchemy.MetaData()
+import databases
 
 
 class MysqlConnector:
@@ -55,9 +52,7 @@ class MysqlConnector:
 
     async def connect(self) -> None:
         """Establishes the connection to the database"""
-        self.connection = Database(self.connection_string)
-        self.engine = sqlalchemy.create_engine(f"mysql+py{self.connection_string}")
-        metadata.create_all(self.engine)
+        self.connection = databases.Database(self.connection_string)
 
         await self.connection.connect()
 

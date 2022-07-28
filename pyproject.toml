@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mysql-context-manager"
-version = "0.1.0"
+version = "0.1.1"
 description = "Work with MySQL databases asynchronously, and in context."
 authors = ["IdoKendo <ryuusuke@gmail.com>"]
 readme = "README.md"
@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.9"
 databases = "^0.6.0"
 PyMySQL = "^1.0.2"
+aiomysql = "^0.1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "7.1.2"
@@ -16,6 +17,8 @@ pre-commit = "^2.20.0"
 scriv = {extras = ["toml"], version = "^0.16.0"}
 tox = "^3.25.1"
 coverage = "^6.4.2"
+pytest-asyncio = "^0.19.0"
+pytest-mock = "^3.8.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
