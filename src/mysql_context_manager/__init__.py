@@ -13,7 +13,14 @@ metadata = sqlalchemy.MetaData()
 
 
 class MysqlConnector:
-    def __init__(self, hostname: str, username: str = "root", password: str | None = None, schema: str | None = None, port: int = 3306):
+    def __init__(
+        self,
+        hostname: str,
+        username: str = "root",
+        password: str | None = None,
+        schema: str | None = None,
+        port: int = 3306,
+    ):
         credentials = username if password is None else f"{username}:{password}"
         if schema is None:
             schema = ""
