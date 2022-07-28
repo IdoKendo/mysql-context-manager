@@ -42,7 +42,7 @@ class MysqlConnector:
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         await self.disconnect()
 
-    def __await__(self):
+    def __await__(self):  # pragma: no cover
         return self.__aenter__().__await__()
 
     async def disconnect(self) -> None:
