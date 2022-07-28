@@ -17,8 +17,8 @@ python -m pip install mysql-context-manager
 ```py
 from mysql_context_manager import MySqlConnector
 
-with MySqlConnector(hostname="localhost") as conn:
-    results = conn.query("select username from users where is_bender = 1 order by username asc;")
+async with MySqlConnector(hostname="localhost") as conn:
+    results = await conn.query("select username from users where is_bender = 1 order by username asc;")
 assert results[0]["username"] == "Aang"
 assert results[1]["username"] == "Katara"
 assert results[2]["username"] == "Toph"
