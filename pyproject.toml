@@ -1,15 +1,16 @@
 [tool.poetry]
 name = "mysql-context-manager"
 version = "0.1.0"
-description = ""
+description = "Work with MySQL databases in context"
 authors = ["IdoKendo <ryuusuke@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "7.1.2"
 pre-commit = "^2.20.0"
+scriv = {extras = ["toml"], version = "^0.16.0"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
