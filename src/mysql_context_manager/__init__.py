@@ -27,7 +27,7 @@ class MysqlConnector:
         Args:
             hostname (str): Hostname of the database
             username (str, optional): Username. Defaults to "root".
-            password (str | None, optional): PAssword, if exists. Defaults to None.
+            password (str | None, optional): Password, if exists. Defaults to None.
             schema (str | None, optional): Schema, if required. Defaults to None.
             port (int, optional): Port. Defaults to 3306.
         """
@@ -72,7 +72,7 @@ class MysqlConnector:
 
         Examples:
             >>> query = "select username, element from users where team_name = :team_name limit 2;"
-            >>> async with MySqlConnector(hostname="localhost") as conn:
+            >>> async with MysqlConnector(hostname="localhost") as conn:
             >>>    print(await conn.query(query, team_name="Team Avatar"))
             [{"username": "Katara", "element": "water"}, {"username": "Toph", "element": "earth"}]
 
@@ -95,7 +95,7 @@ class MysqlConnector:
 
         Examples:
             >>> query = "update users set username = :username where user_id = :user_id;"
-            >>> async with MySqlConnector(hostname="localhost") as conn:
+            >>> async with MysqlConnector(hostname="localhost") as conn:
             >>>    await conn.query(query, username="Truth", user_id=42)
         """
         await self.connection.execute(query=sql_query, values=kwargs)
