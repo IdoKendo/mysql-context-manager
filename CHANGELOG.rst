@@ -1,4 +1,13 @@
 
+2022-07-31
+==========
+
+Added
+-----
+
+- Added example using SQLAlchemy.
+- Added automatic deploy action to PyPI.
+
 2022-07-28
 ==========
 

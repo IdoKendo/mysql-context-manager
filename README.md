@@ -1,7 +1,11 @@
 # MySQL Context Manager
 
-Work with MySQL based databases asynchronously, using a context manager.
+ > Work with MySQL based databases asynchronously, using a context manager.
 
+[![PyPI version][pypi-image]][pypi-url]
+[![Build status][build-image]][build-url]
+[![Code coverage][coverage-image]][coverage-url]
+[![Support Python versions][versions-image]][versions-url]
 
 ## Getting started
 
@@ -23,3 +27,44 @@ assert results[0]["username"] == "Aang"
 assert results[1]["username"] == "Katara"
 assert results[2]["username"] == "Toph"
 ```
+
+## Example using SQLAlchemy
+
+```py
+from mysql_context_manager import MysqlConnector
+import sqlalchemy
+from sqlalchemy.dialects import mysql
+
+metadata = sqlalchemy.MetaData()
+
+users = sqlalchemy.Table(
+    "users",
+    metadata,
+    sqlalchemy.Column("user_id", mysql.INTEGER(), autoincrement=True, nullable=False),
+    sqlalchemy.Column("username", mysql.VARCHAR(length=128), nullable=False),
+    sqlalchemy.Column("is_bender", mysql.SMALLINT(), autoincrement=False, nullable=True),
+    sqlalchemy.PrimaryKeyConstraint("user_id"),
+    mysql_default_charset="utf8mb4",
+    mysql_engine="InnoDB",
+)
+
+async with MysqlConnector(hostname="localhost") as conn:
+    results = await conn.query(users.select().where(users.c.username == "Aang"))
+assert results[0]["username"] == "Aang"
+assert results[0]["is_bender"] == 1
+```
+
+## Changelog
+
+Refer to the [CHANGELOG.rst](CHANGELOG.rst) file.
+
+<!-- Badges -->
+
+[pypi-image]: https://img.shields.io/pypi/v/mysql-context-manager
+[pypi-url]: https://pypi.org/project/mysql-context-manager/
+[build-image]: https://github.com/idokendo/mysql-context-manager/actions/workflows/build.yaml/badge.svg
+[build-url]: https://github.com/idokendo/mysql-context-manager/actions/workflows/build.yaml
+[coverage-image]: https://codecov.io/ghidokendo/mysql-context-manager/branch/main/graph/badge.svg
+[coverage-url]: https://codecov.io/gh/idokendo/mysql-context-manager
+[versions-image]: https://img.shields.io/pypi/pyversions/mysql-context-manager
+[versions-url]: https://pypi.org/project/mysql-context-manager/
