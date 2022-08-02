@@ -64,7 +64,7 @@ Refer to the [CHANGELOG.rst](CHANGELOG.rst) file.
 [pypi-url]: https://pypi.org/project/mysql-context-manager/
 [build-image]: https://github.com/idokendo/mysql-context-manager/actions/workflows/build.yaml/badge.svg
 [build-url]: https://github.com/idokendo/mysql-context-manager/actions/workflows/build.yaml
-[coverage-image]: https://codecov.io/ghidokendo/mysql-context-manager/branch/main/graph/badge.svg
+[coverage-image]: https://codecov.io/gh/idokendo/mysql-context-manager/branch/main/graph/badge.svg
 [coverage-url]: https://codecov.io/gh/idokendo/mysql-context-manager
 [versions-image]: https://img.shields.io/pypi/pyversions/mysql-context-manager
 [versions-url]: https://pypi.org/project/mysql-context-manager/
