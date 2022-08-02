@@ -1,34 +1,15 @@
-.. A new scriv changelog fragment.
-..
-.. Uncomment the header that is right (remove the leading dots).
-..
-.. Removed
-.. -------
-..
-.. - A bullet item for the Removed category.
-..
-.. Added
-.. -----
-..
-.. - A bullet item for the Added category.
+Added
+-----
+
+- Support for Python 3.8
 
 Changed
 -------
 
 - Tests folder cleanup.
-
-.. Deprecated
-.. ----------
-..
-.. - A bullet item for the Deprecated category.
+- Using pytest-cov instead of bare coverage.
 
 Fixed
 -----
 
 - Added passenv to tox.ini for running on Windows.
-
-.. Security
-.. --------
-..
-.. - A bullet item for the Security category.
-..
