@@ -1,4 +1,18 @@
 
+2022-08-02
+==========
+
+Added
+-----
+
+- Run tox on windows in GH actions.
+
+Changed
+-------
+
+- Using pytest-cov instead of bare coverage.
+- Lowered minimum python version to 3.8
+
 2022-07-31
 ==========
 
