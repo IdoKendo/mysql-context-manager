@@ -24,7 +24,7 @@ pytest-mock = "^3.8.2"
 pytest-cov = "^3.0.0"
 
 [tool.pytest.ini_options]
-addopts = "--cov=mysql_context_manager"
+addopts = "--cov=mysql_context_manager --cov-report xml"
 testpaths = [
     "tests",
 ]
