@@ -1,4 +1,13 @@
 
+2022-08-03
+==========
+
+Fixed
+-----
+
+- Run tox on python 3.8 in GH actions.
+- Coverage image URL was broken.
+
 2022-08-02
 ==========
 
