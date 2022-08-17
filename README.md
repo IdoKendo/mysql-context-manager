@@ -1,5 +1,7 @@
 # MySQL Context Manager
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b8ec682f1ba437580f7649258ee63df)](https://app.codacy.com/gh/IdoKendo/mysql-context-manager?utm_source=github.com&utm_medium=referral&utm_content=IdoKendo/mysql-context-manager&utm_campaign=Badge_Grade_Settings)
+
  > Work with MySQL based databases asynchronously, using a context manager.
 
 [![PyPI version][pypi-image]][pypi-url]
