@@ -3,10 +3,12 @@
  > Work with MySQL based databases asynchronously, using a context manager.
 
 [![PyPI version][pypi-image]][pypi-url]
+[![PyPI downloads][downloads-image]][downloads-url]
 [![Build status][build-image]][build-url]
 [![Code coverage][coverage-image]][coverage-url]
 [![Codacy Badge][codacy-iamge]][codacy-url]
 [![Support Python versions][versions-image]][versions-url]
+[![Code style: Black][black-image]][black-url]
 
 ## Getting started
 
@@ -63,6 +65,8 @@ Refer to the [CHANGELOG.rst](CHANGELOG.rst) file.
 
 [pypi-image]: https://img.shields.io/pypi/v/mysql-context-manager
 [pypi-url]: https://pypi.org/project/mysql-context-manager/
+[downloads-image]: https://img.shields.io/pypi/dm/mysql-context-manager.svg
+[downloads-url]: https://pypistats.org/packages/mysql-context-manager
 [build-image]: https://github.com/idokendo/mysql-context-manager/actions/workflows/build.yaml/badge.svg
 [build-url]: https://github.com/idokendo/mysql-context-manager/actions/workflows/build.yaml
 [coverage-image]: https://codecov.io/gh/idokendo/mysql-context-manager/branch/main/graph/badge.svg
@@ -71,3 +75,5 @@ Refer to the [CHANGELOG.rst](CHANGELOG.rst) file.
 [versions-url]: https://pypi.org/project/mysql-context-manager/
 [codacy-iamge]: https://app.codacy.com/project/badge/Grade/59b037e21c4e4c6ea5a51f4a693dc267
 [codacy-url]: https://www.codacy.com/gh/IdoKendo/mysql-context-manager/dashboard
+[black-image]: https://img.shields.io/badge/code%20style-Black-000000.svg
+[black-url]: https://github.com/psf/black
