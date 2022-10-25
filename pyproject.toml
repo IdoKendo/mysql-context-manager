@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mysql-context-manager"
-version = "0.1.4"
+version = "0.1.5"
 description = "Work with MySQL databases asynchronously, and in context."
 license = "MIT"
 authors = ["IdoKendo <ryuusuke@gmail.com>"]

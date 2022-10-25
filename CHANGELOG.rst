@@ -1,4 +1,19 @@
 
+2022-10-25
+==========
+
+Added
+-----
+
+- Support for Python 3.11.
+
+Changed
+-------
+
+- Tidied up the tox and GH actions stages
+- Updated pyproject.toml to new poetry group depdendencies
+- Updated depdendencies
+
 2022-08-03
 ==========
 

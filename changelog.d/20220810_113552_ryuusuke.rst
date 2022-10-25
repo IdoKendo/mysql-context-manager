@@ -1,4 +1,0 @@
-Changed
--------
-
- - Tidied up the tox and GH actions stages

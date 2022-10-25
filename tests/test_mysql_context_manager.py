@@ -4,7 +4,7 @@ from mysql_context_manager import MysqlConnector
 
 
 def test_version():
-    assert __version__ == "0.1.4"
+    assert __version__ == "0.1.5"
 
 
 def test_connection_string():

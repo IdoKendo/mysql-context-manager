@@ -1,5 +1,0 @@
-Changed
--------
-
-- Updated pyproject.toml to new poetry group depdendencies
-- Updated depdendencies
