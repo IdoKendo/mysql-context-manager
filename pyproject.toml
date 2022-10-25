@@ -10,14 +10,17 @@ repository = "https://github.com/IdoKendo/mysql-context-manager"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-databases = "^0.6.0"
+databases = "^0.6.1"
 PyMySQL = "^1.0.2"
 aiomysql = "^0.1.1"
 
-[tool.poetry.dev-dependencies]
-pytest = "7.1.2"
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
 pre-commit = "^2.20.0"
-scriv = {extras = ["toml"], version = "^0.16.0"}
+scriv = { extras = ["toml"], version = "^0.16.0" }
 tox = "^3.25.1"
 pytest-asyncio = "^0.19.0"
 pytest-mock = "^3.8.2"
@@ -25,9 +28,7 @@ pytest-cov = "^3.0.0"
 
 [tool.pytest.ini_options]
 addopts = "--cov=mysql_context_manager --cov-report xml"
-testpaths = [
-    "tests",
-]
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
