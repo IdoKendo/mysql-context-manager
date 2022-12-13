@@ -1,4 +1,12 @@
 
+2022-12-13
+==========
+
+Security
+--------
+
+- Update dependencies' versions.
+
 2022-10-25
 ==========
 
