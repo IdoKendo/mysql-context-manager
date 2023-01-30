@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mysql-context-manager"
-version = "0.1.6"
+version = "0.1.5"
 description = "Work with MySQL databases asynchronously, and in context."
 license = "MIT"
 authors = ["IdoKendo <ryuusuke@gmail.com>"]
@@ -10,7 +10,7 @@ repository = "https://github.com/IdoKendo/mysql-context-manager"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-databases = "^0.6.2"
+databases = "^0.7.0"
 PyMySQL = "^1.0.2"
 aiomysql = "^0.1.1"
 
@@ -18,17 +18,26 @@ aiomysql = "^0.1.1"
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
-pre-commit = "^2.20.0"
-scriv = { extras = ["toml"], version = "^1.0.0" }
-tox = "^4.0.8"
+pytest = "^7.2.1"
+pre-commit = "^3.0.2"
+scriv = { extras = ["toml"], version = "^1.2.0" }
+tox = "^4.4.2"
 pytest-asyncio = "^0.20.3"
 pytest-mock = "^3.10.0"
 pytest-cov = "^4.0.0"
+mypy = "^0.991"
 
 [tool.pytest.ini_options]
 addopts = "--cov=mysql_context_manager --cov-report xml"
 testpaths = ["tests"]
+
+[tool.ruff]
+exclude = [".tox"]
+select = ["E", "F", "W", "B", "I", "UP", "C4", "TID"]
+target-version = "py311"
+
+[tool.roff.isort]
+force-single-line = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

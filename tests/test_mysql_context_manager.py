@@ -1,6 +1,5 @@
 import pytest
-from mysql_context_manager import __version__
-from mysql_context_manager import MysqlConnector
+from mysql_context_manager import MysqlConnector, __version__
 
 
 def test_version():
@@ -37,4 +36,7 @@ async def test_query(mock_db):
 async def test_execute(mock_db):
     connector = MysqlConnector(hostname="localhost", schema="team_avatar")
     async with connector as conn:
-        await conn.execute("update users set avatar_state = 1 where username = :username;", username="Aang")
+        await conn.execute(
+            "update users set avatar_state = 1 where username = :username;",
+            username="Aang",
+        )

@@ -32,7 +32,7 @@ class MysqlConnector:
         if schema is None:
             schema = ""
         self.connection_string = f"mysql://{credentials}@{hostname}:{port}/{schema}"
-        self.connection = None
+        self.connection: databases.Database | None = None
         self.engine = None
 
     async def __aenter__(self):
@@ -53,8 +53,8 @@ class MysqlConnector:
     async def connect(self) -> None:
         """Establishes the connection to the database"""
         self.connection = databases.Database(self.connection_string)
-
-        await self.connection.connect()
+        if self.connection is not None:
+            await self.connection.connect()
 
     async def query(self, sql_query: str, **kwargs) -> list[dict[str, Any]]:
         """Queries the database
@@ -66,14 +66,16 @@ class MysqlConnector:
             list[dict[str, Any]]: List of rows represented in dictioary format
 
         Examples:
-            >>> query = "select username, element from users where team_name = :team_name limit 2;"
+            >>> query = "select name, elem from users where team = :team limit 2;"
             >>> async with MysqlConnector(hostname="localhost") as conn:
-            >>>    print(await conn.query(query, team_name="Team Avatar"))
-            [{"username": "Katara", "element": "water"}, {"username": "Toph", "element": "earth"}]
+            >>>    print(await conn.query(query, team="Team Avatar"))
+            [{"name": "Katara", "elem": "water"}, {"name": "Toph", "elem": "earth"}]
 
         """
-        result = await self.connection.fetch_all(query=sql_query, values=kwargs)
-        result = [dict(i) for i in result]
+        if self.connection is None:
+            return []
+        records = await self.connection.fetch_all(query=sql_query, values=kwargs)
+        result = [dict(i) for i in records]
         for res in result:
             for key, val in res.items():
                 try:
@@ -89,8 +91,10 @@ class MysqlConnector:
             sql_query (str): SQL query, with placeholders as :placeholder
 
         Examples:
-            >>> query = "update users set username = :username where user_id = :user_id;"
+            >>> query = "update users set name = :name where user_id = :user_id;"
             >>> async with MysqlConnector(hostname="localhost") as conn:
-            >>>    await conn.query(query, username="Truth", user_id=42)
+            >>>    await conn.query(query, name="Truth", user_id=42)
         """
+        if self.connection is None:
+            return
         await self.connection.execute(query=sql_query, values=kwargs)
