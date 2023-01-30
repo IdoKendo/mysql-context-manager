@@ -65,6 +65,9 @@ class MysqlConnector:
         Returns:
             list[dict[str, Any]]: List of rows represented in dictioary format
 
+        Raises:
+            ConnectionError: in case of method call before running connect()
+
         Examples:
             >>> query = "select name, elem from users where team = :team limit 2;"
             >>> async with MysqlConnector(hostname="localhost") as conn:
@@ -73,7 +76,7 @@ class MysqlConnector:
 
         """
         if self.connection is None:
-            return []
+            raise ConnectionError("No active connection")
         records = await self.connection.fetch_all(query=sql_query, values=kwargs)
         result = [dict(i) for i in records]
         for res in result:
@@ -90,11 +93,14 @@ class MysqlConnector:
         Args:
             sql_query (str): SQL query, with placeholders as :placeholder
 
+        Raises:
+            ConnectionError: in case of method call before running connect()
+
         Examples:
             >>> query = "update users set name = :name where user_id = :user_id;"
             >>> async with MysqlConnector(hostname="localhost") as conn:
             >>>    await conn.query(query, name="Truth", user_id=42)
         """
         if self.connection is None:
-            return
+            raise ConnectionError("No active connection")
         await self.connection.execute(query=sql_query, values=kwargs)

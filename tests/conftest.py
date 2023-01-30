@@ -8,7 +8,7 @@ def mock_db(mocker):
     mocker.patch(
         "databases.Database.fetch_all",
         return_value=[
-            [("username", "Aang")],
+            [("name", "Aang")],
         ],
     )
     mocker.patch("databases.Database.execute", return_value=None)
