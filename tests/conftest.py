@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.fixture()
-def mock_db(mocker):
+def _mock_db(mocker):
     mocker.patch("databases.Database.connect", return_value=None)
     mocker.patch("databases.Database.disconnect", return_value=None)
     mocker.patch(

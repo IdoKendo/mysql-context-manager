@@ -3,6 +3,7 @@ from __future__ import annotations
 
 __version__ = "0.1.6"
 
+import contextlib
 import json
 from json import JSONDecodeError
 from typing import Any
@@ -81,10 +82,8 @@ class MysqlConnector:
         result = [dict(i) for i in records]
         for res in result:
             for key, val in res.items():
-                try:
+                with contextlib.suppress(JSONDecodeError, TypeError):
                     res[key] = json.loads(val)
-                except (JSONDecodeError, TypeError):
-                    pass
         return result
 
     async def execute(self, sql_query: str, **kwargs) -> None:

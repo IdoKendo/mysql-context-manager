@@ -33,10 +33,27 @@ testpaths = ["tests"]
 
 [tool.ruff]
 exclude = [".tox"]
-select = ["E", "F", "W", "B", "I", "UP", "C4", "TID"]
-target-version = "py311"
+target-version = "py38"
+select = [
+    "A",    #  builtins
+    "ARG",  #  unsued arguments
+    "B",    #  bugbear
+    "C4",   #  comprehensions
+    "C90",  #  mccabe
+    "COM",  #  commas
+    "E",    #  pycodestyle
+    "F",    #  pyflakes
+    "I",    #  isort
+    "N",    #  pep8-naming
+    "PT",   #  pytest style
+    "RUF",  #  ruff
+    "SIM",  #  simplify
+    "TID",  #  tidy imports
+    "UP",   #  pyupgrade
+    "W",    #  warnings
+]
 
-[tool.roff.isort]
+[tool.ruff.isort]
 force-single-line = true
 
 [build-system]
