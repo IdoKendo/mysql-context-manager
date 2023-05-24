@@ -1,4 +1,21 @@
 
+2023-05-24
+==========
+
+Added
+-----
+
+- Added mypy type checker
+
+- Added support for python 3.12-dev
+
+Changed
+-------
+
+- Changed linting to ruff
+
+- query() and execute() will raise ConnectionError in case they are run without active connection.
+
 2022-12-13
 ==========
 
