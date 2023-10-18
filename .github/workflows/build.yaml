@@ -15,10 +15,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
         experimental: [false]
         include:
-        - python-version: "3.12-dev"
+        - python-version: "3.13-dev"
           os: ubuntu-latest
           experimental: true
 
@@ -41,7 +41,7 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
 
       - name: upload coverage to Codecov
-        if: "matrix.python-version == '3.11'"
+        if: "matrix.python-version == '3.12'"
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
