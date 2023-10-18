@@ -1,4 +1,18 @@
 
+2023-10-18
+==========
+
+Added
+-----
+
+- Official support to Python 3.12.
+- Experimental support to Python 3.13-alpha.
+
+Security
+--------
+
+- Updated minimum version for many dependencies.
+
 2023-05-24
 ==========
 
