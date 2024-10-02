@@ -34,6 +34,8 @@ testpaths = ["tests"]
 [tool.ruff]
 exclude = [".tox"]
 target-version = "py38"
+
+[tool.ruff.lint]
 select = [
     "A",    #  builtins
     "ARG",  #  unsued arguments
@@ -52,8 +54,11 @@ select = [
     "UP",   #  pyupgrade
     "W",    #  warnings
 ]
+ignore = [
+    "COM812",  # avoid conflicts
+]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 force-single-line = true
 
 [build-system]
