@@ -1,4 +1,5 @@
 import pytest
+
 from mysql_context_manager import MysqlConnector
 from mysql_context_manager import __version__
 
@@ -17,7 +18,7 @@ def test_connection_string_with_schema_name():
     assert connector.connection_string == "mysql://root@localhost:3306/team_avatar"
 
 
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 async def test_false_disconnect():
     connector = MysqlConnector(hostname="localhost")
     assert connector.connection is None
@@ -26,7 +27,7 @@ async def test_false_disconnect():
 
 
 @pytest.mark.usefixtures("_mock_db")
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 async def test_query():
     connector = MysqlConnector(hostname="localhost", schema="team_avatar")
     async with connector as conn:
@@ -35,7 +36,7 @@ async def test_query():
 
 
 @pytest.mark.usefixtures("_mock_db")
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 async def test_execute():
     connector = MysqlConnector(hostname="localhost", schema="team_avatar")
     async with connector as conn:
@@ -46,7 +47,7 @@ async def test_execute():
 
 
 @pytest.mark.usefixtures("_mock_db")
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 async def test_query_without_connection():
     connector = MysqlConnector(hostname="localhost", schema="team_avatar")
     with pytest.raises(ConnectionError):
@@ -54,7 +55,7 @@ async def test_query_without_connection():
 
 
 @pytest.mark.usefixtures("_mock_db")
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 async def test_execute_without_connection():
     connector = MysqlConnector(hostname="localhost", schema="team_avatar")
     with pytest.raises(ConnectionError):
