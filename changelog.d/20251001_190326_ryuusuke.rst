@@ -1,0 +1,14 @@
+Added
+-----
+
+- Added official support for Python 3.14
+
+Deprecated
+----------
+
+- Support for Python 3.9 will be removed in the next version.
+
+Security
+--------
+
+- Updated dependency lockfile
